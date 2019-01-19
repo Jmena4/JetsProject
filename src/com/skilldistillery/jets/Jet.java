@@ -1,6 +1,6 @@
 package com.skilldistillery.jets;
 
-public abstract class Jet  {
+public abstract class Jet {
 	/*
 	 * All Jets must have a model, speed, range, and price associated with them.
 	 * Speed is in MPH, but your Jet can also output the speed in mach. Jets have
@@ -29,7 +29,9 @@ public abstract class Jet  {
 	}
 
 	public double getSpeedinMach() {
-		return 0;
+		// math to convert speed ft/s to speed in Mach
+		this.speed = speed / 980;
+		return speed;
 	}
 
 	public String getModel() {
@@ -64,4 +66,7 @@ public abstract class Jet  {
 		this.price = price;
 	}
 
+	public static void jetApplication() {
+
+	}
 }
