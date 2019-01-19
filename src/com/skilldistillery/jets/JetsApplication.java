@@ -2,9 +2,11 @@ package com.skilldistillery.jets;
 
 import java.util.Scanner;
 
-
-
 public class JetsApplication {
+	public JetsApplication() {
+
+	}
+
 	public static void main(String[] args) {
 
 		/* make private Scanner? */

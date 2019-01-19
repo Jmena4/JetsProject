@@ -8,6 +8,7 @@ public class JetImpl extends Jet{
 
 	public JetImpl(String model, int speed, double range, long price) {
 		super(model, speed, range, price);
+		
 	}
 
 }

@@ -8,7 +8,7 @@ public abstract class Jet {
 	 * can fly until it runs out of fuel (based on speed and range).
 	 */
 	private String model;
-	private int speed;
+	private double speed;
 	private double range;
 	private long price;
 
@@ -25,12 +25,14 @@ public abstract class Jet {
 	}
 
 	public void fly() {
-
+		
+		double flightTime = (this.range/this.speed);
+		
 	}
 
 	public double getSpeedinMach() {
 		// math to convert speed ft/s to speed in Mach
-		this.speed = speed / 980;
+		this.speed = (speed / 767.27);
 		return speed;
 	}
 
@@ -42,7 +44,7 @@ public abstract class Jet {
 		this.model = model;
 	}
 
-	public int getSpeed() {
+	public double getSpeed() {
 		return speed;
 	}
 
