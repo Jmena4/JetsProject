@@ -9,14 +9,14 @@ public abstract class Jet {
 	 */
 	private String model;
 	private double speed;
-	private double range;
+	private int range;
 	private long price;
 
 	public Jet() {
 		super();
 	}
 
-	public Jet(String model, int speed, double range, long price) {
+	public Jet(String model, double speed, int range, long price) {
 		super();
 		this.model = model;
 		this.speed = speed;
@@ -26,7 +26,7 @@ public abstract class Jet {
 
 	public void fly() {
 		
-		double flightTime = (this.range/this.speed);
+//		double flightTime = (this.range/this.speed);
 		
 	}
 
@@ -48,7 +48,7 @@ public abstract class Jet {
 		return speed;
 	}
 
-	public void setSpeed(int speed) {
+	public void setSpeed(double speed) {
 		this.speed = speed;
 	}
 
@@ -56,7 +56,7 @@ public abstract class Jet {
 		return range;
 	}
 
-	public void setRange(double range) {
+	public void setRange(int range) {
 		this.range = range;
 	}
 
@@ -71,4 +71,5 @@ public abstract class Jet {
 	public static void jetApplication() {
 
 	}
+	
 }
