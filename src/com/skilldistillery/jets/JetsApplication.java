@@ -48,8 +48,10 @@ public class JetsApplication {
 			break;
 		case 7:
 			afb.JetImpl();
+			afb.listJets();
 			break;
 		case 8:
+
 			break;
 		default:
 

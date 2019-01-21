@@ -130,7 +130,7 @@ public class Airfield {
 					jets[j].setPrice(price);
 
 //		jets[5] = new CargoPlane("C-17", 590, 6456, 218000000); Test values for adding a new jet[i] 
-
+					System.out.println();
 					System.out.println("Jet model is: " + jets[j].getModel() + " Max speed(MPH): " + jets[j].getSpeed()
 							+ " Max range(Miles): " + jets[j].getRange() + " Price/Unit cost is($): "
 							+ jets[j].getPrice());
