@@ -1,11 +1,14 @@
 package com.skilldistillery.jets;
 
+import java.util.Random;
+import java.util.*;
 import java.util.Scanner;
 
 public class Airfield {
 
 	private Jet[] jets = new Jet[10];
 	Scanner sc = new Scanner(System.in);
+
 	public Airfield() {
 		super();
 		jets[0] = new FighterJet("F-35", 1200, 1200, 85000000);
@@ -13,7 +16,6 @@ public class Airfield {
 		jets[2] = new FighterJet("F-16", 1500, 2622, 18600000);
 		jets[3] = new CargoPlane("C-5", 597, 7273, 224290000);
 		jets[4] = new CargoPlane("C-130", 398, 2361, 30000000);
-		jets[5] = new CargoPlane("C-17", 590, 6456, 218000000);
 
 //		populateAirfield(jets);
 	}
@@ -23,8 +25,7 @@ public class Airfield {
 
 	public void listJets() {
 		for (Jet jet : jets) {
-			if (jet != null) // if ( jet instanceof Jet )
-			{
+			if (jet != null) {
 				System.out.println("Jet model is: " + jet.getModel() + " Max speed(MPH): " + jet.getSpeed()
 						+ " Max range(Miles): " + jet.getRange() + " Price/Unit cost is($): " + jet.getPrice());
 
@@ -36,16 +37,12 @@ public class Airfield {
 	}
 
 	public void flyJets() {
-		for (Jet jet : jets) {
-			if(Airfield instanceof jets) {
-				
+		for (int i = 0; i < jets.length; i++) {
+			if (jets[i] instanceof Jet) {
+				System.out.println("Jet model " + jets[i].getModel() + " is flying");
+			} else {
+				break;
 			}
-//			if (jet != null) {
-//				System.out.println("Jet Model " + jet.getModel() + " is Flying");
-//			} else {
-//				break;
-//			}
-
 		}
 	}
 
@@ -83,7 +80,6 @@ public class Airfield {
 
 	public void loadCargoJets() {
 		for (Jet CargoPlane : jets) {
-//				if (drawable != null) { also works 
 			if (CargoPlane instanceof CargoCarrier) {
 				((CargoCarrier) CargoPlane).loadCargo();
 				System.out.println("Loading Cargo Planes: " + "\t" + CargoPlane.getModel());
@@ -93,47 +89,58 @@ public class Airfield {
 	}
 
 	public void dogFight() {
-//		for (Jet FighterJet : jets) {
-//				if (drawable != null) { also works 
-//			if (FighterJet instanceof CombatReady) {
-//				((CombatReady) FighterJet).fight();
-				
-//				System.out.println("Dog Fighting: " + "\t" + FighterJet.getModel() + "\t" + (FighterJet.getRandomElement(FighterJet.getModel())));
-						/*
-						 * 
-						 */
-//						( (int)(Math.random()*100)
-	}
+		for (Jet FighterJet : jets) {
+			if (FighterJet instanceof CombatReady) {
+				((CombatReady) FighterJet).fight();
+//				Random random = new Random();
+				//attempting to generate a random FighterJet to dog fight 
+					System.out.print(
+							"Dog Fighting: " + "\t" + FighterJet.getModel() + "\tis dog fighting another aircraft "  /* + jets[FighterJet.nextDouble(jets)] */);
+					System.out.println((Character.toChars(0x1F680)));
+			} else 
+				break;
+			}
+		}
+
+	
+
+//	private String Random(String model) {
+//		return null;
+//	}
 
 	public void JetImpl() {
-		JetImplNew();
+		boolean go = true;
+		for (int j = 0; j < jets.length; j++) {
+			if (jets[j] != null) {
+				while (go) {
+					System.out.println("Please enter an Aircraft Model type: ");
+					String model = sc.next();
+					jets[j].setModel(model);
+
+					System.out.println("Please enter an Aircraft Speed: ");
+					double speed = sc.nextDouble();
+					jets[j].setSpeed(speed);
+
+					System.out.println("Please enter an Aircraft Range: ");
+					int range = sc.nextInt();
+					jets[j].setRange(range);
+
+					System.out.println("Please enter an Aircraft Price");
+					long price = sc.nextLong();
+					jets[j].setPrice(price);
+
+//		jets[5] = new CargoPlane("C-17", 590, 6456, 218000000); Test values for adding a new jet[i] 
+
+					System.out.println("Jet model is: " + jets[j].getModel() + " Max speed(MPH): " + jets[j].getSpeed()
+							+ " Max range(Miles): " + jets[j].getRange() + " Price/Unit cost is($): "
+							+ jets[j].getPrice());
+					go = false;
+				}
+			}
+		}
+		while (go)
+			sc.close();
+
 	}
 
-	private void JetImplNew() {
-		for (Jet jet : jets[i]) {
-			if (jets[i] == null) {
-				System.out.println("Please enter an Aircraft Model type: ");
-				String model = sc.next();
-				
-				
-				System.out.println("Please enter an Aircraft Speed: ");
-				double speed = sc.nextDouble();
-				
-				System.out.println("Please enter an Aircraft Range: ");
-				int range = sc.nextInt();
-				
-				System.out.println("Please enter an Aircraft Price");
-				long price = sc.nextLong();
-				
-				System.out.print(jet.setModel(model));
-			}
-			
-			
-			
-		}
-		
-		
-		sc.close();
-		
-	}
 }

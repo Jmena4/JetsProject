@@ -1,8 +1,7 @@
 package com.skilldistillery.jets;
 
-import java.util.Random;
 
-public abstract class Jet {
+public class Jet {
 	/*
 	 * All Jets must have a model, speed, range, and price associated with them.
 	 * Speed is in MPH, but your Jet can also output the speed in mach. Jets have
@@ -27,7 +26,7 @@ public abstract class Jet {
 	}
 
 	public void fly() {
-		
+//		System.out.println("Aircraft is Flying: ");
 //		double flightTime = (this.range/this.speed);
 		
 	}

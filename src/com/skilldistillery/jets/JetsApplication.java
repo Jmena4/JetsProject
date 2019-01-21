@@ -50,7 +50,6 @@ public class JetsApplication {
 			afb.JetImpl();
 			break;
 		case 8:
-
 			break;
 		default:
 
@@ -62,7 +61,6 @@ public class JetsApplication {
 	}
 
 	private void displayUserMenu() {
-		System.out.println("Tester Menu");
 		System.out.println(
 				"\n1) List fleet\n" + "2) Fly all jets\n" + "3) View fastest jet\n" + "4) View jet with longest range\n"
 						+ "5) Load all Cargo Jets\n" + "6) Dogfight!\n" + "7) Add a jet to Fleet\n" + "8) Quit\n");

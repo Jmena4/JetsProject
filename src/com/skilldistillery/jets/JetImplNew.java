@@ -2,7 +2,7 @@ package com.skilldistillery.jets;
 
 import java.util.Scanner;
 
-public class JetImplNew extends Jet{
+public class JetImplNew extends Airfield{
 	Scanner sc = new Scanner(System.in);
 
 	public JetImplNew() {
@@ -13,19 +13,19 @@ public class JetImplNew extends Jet{
 	public JetImplNew(String model, double speed, int range, long price) {
 		super(model, speed, range, price);
 		
-		System.out.println("Please enter an Aircraft Model type: ");
-		String model1 = sc.next();
-		
-		
-		System.out.println("Please enter an Aircraft Speed: ");
-		double speed1 = sc.nextDouble();
-		
-		
-		
-		System.out.println(model1 + speed1);
-		
-		
-		sc.close();
+//		System.out.println("Please enter an Aircraft Model type: ");
+//		String model1 = sc.next();
+//		
+//		
+//		System.out.println("Please enter an Aircraft Speed: ");
+//		double speed1 = sc.nextDouble();
+//		
+//		
+//		
+//		System.out.println(model1 + speed1);
+//		
+//		
+//		sc.close();
 		
  	};
 	
