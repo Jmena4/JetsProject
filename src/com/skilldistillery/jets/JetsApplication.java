@@ -41,13 +41,13 @@ public class JetsApplication {
 			afb.longestRange();
 			break;
 		case 5:
-
+			afb.loadCargoJets();
 			break;
 		case 6:
-
+			afb.dogFight();
 			break;
 		case 7:
-
+			afb.JetImpl();
 			break;
 		case 8:
 

@@ -1,5 +1,7 @@
 package com.skilldistillery.jets;
 
+import java.util.Random;
+
 public abstract class Jet {
 	/*
 	 * All Jets must have a model, speed, range, and price associated with them.
@@ -71,5 +73,10 @@ public abstract class Jet {
 	public static void jetApplication() {
 
 	}
+//	public int getRandomElement(Jet jets) 
+//    { 
+//        Random rand = new Random(); 
+//        return jets.get(rand.nextInt(jets.size())); 
+//    }
 	
 }
