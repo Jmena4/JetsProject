@@ -21,7 +21,6 @@ public class JetsApplication {
 	public void launchProgram(Scanner sc) {
 		Airfield afb = new Airfield();
 //		Airfield afb1 = new Airfield();
-		boolean go = true;
 		int choice;
 		do  {
 		displayUserMenu();
@@ -47,6 +46,7 @@ public class JetsApplication {
 				afb.dogFight();
 				break;
 			case 7:
+			
 				afb.addANewJet();
 				
 				break;
@@ -59,6 +59,10 @@ public class JetsApplication {
 //			go = true;
 		}while (choice != 8);
 		System.out.println("Quiting...");
+	}
+
+	private void displayAircraftSelectionMenu() {
+		System.out.println("\nList Aircraft Type options to create(1 or 2):\n"+"\n1) Cargo Plane"+ "\n2) Fighter Jet");
 	}
 
 	private void displayUserMenu() {
