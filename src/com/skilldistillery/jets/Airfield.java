@@ -14,7 +14,7 @@ public class Airfield {
 		jets[0] = new FighterJet("F-35", 1200, 1200, 85000000);
 		jets[1] = new FighterJet("F-22", 1498, 1839, 150000000);
 		jets[2] = new FighterJet("F-16", 1500, 2622, 18600000);
-		jets[3] = new CargoPlane("C-5", 597, 7273, 224290000);
+		jets[3] = new CargoPlane("C-5 ", 597, 7273, 224290000);
 		jets[4] = new CargoPlane("C-130", 398, 2361, 30000000);
 
 //		populateAirfield(jets);
@@ -62,15 +62,16 @@ public class Airfield {
 	}
 
 	public void longestRange() {
-		double MAX_RANGE = jets[0].getRange();
+		double MAX_RANGE =0;
+		MAX_RANGE = jets[0].getRange();
 		for (int j = 0; j < jets.length; j++) {
 			if (jets[j] != null) {
 				if (jets[j].getRange() > MAX_RANGE) {
 					MAX_RANGE = jets[j].getRange();
+					System.out
+					.println("Longest Range aircraft is: " + "\t" + jets[j].getModel() + "\t" + jets[j].getRange());
+					System.out.println("\tMAX_RANGE is: " + MAX_RANGE);
 				}
-				System.out
-						.println("Longest Range aircraft is: " + "\t" + jets[j].getModel() + "\t" + jets[j].getRange());
-				System.out.println("\tMAX_RANGE is: " + MAX_RANGE);
 			} else {
 				break;
 			}
@@ -108,7 +109,7 @@ public class Airfield {
 //		return null;
 //	}
 
-	public void JetImpl() {
+	public void addANewJet() {
 		boolean go = true;
 		for (int j = 0; j < jets.length; j++) {
 			if (jets[j] != null) {
@@ -128,11 +129,20 @@ public class Airfield {
 					System.out.println("Please enter an Aircraft Price");
 					long price = sc.nextLong();
 					jets[j].setPrice(price);
-
-//		jets[5] = new CargoPlane("C-17", 590, 6456, 218000000); Test values for adding a new jet[i] 
-					System.out.println("Jet model is: " + jets[j].getModel() + " Max speed(MPH): " + jets[j].getSpeed()
-							+ " Max range(Miles): " + jets[j].getRange() + " Price/Unit cost is($): "
-							+ jets[j].getPrice());
+					
+					Jet newJet = new JetImplNew(model, speed, range, price);
+					for (Jet jet : jets) {
+						if (jet == null) {
+							jet = newJet;
+							System.out.println("I parked the new Jet");
+							break;
+						}
+					}
+//					this.jets[j] = jets[j];
+					//		jets[5] = new CargoPlane("C-17", 590, 6456, 218000000); Test values for adding a new jet[i] 
+//					System.out.println("Jet model is: " + jets[j].getModel() + " Max speed(MPH): " + jets[j].getSpeed()
+//							+ " Max range(Miles): " + jets[j].getRange() + " Price/Unit cost is($): "
+//							+ jets[j].getPrice());
 					go = false;
 				}
 			}

@@ -21,50 +21,49 @@ public class JetsApplication {
 	public void launchProgram(Scanner sc) {
 		Airfield afb = new Airfield();
 //		Airfield afb1 = new Airfield();
-
+		boolean go = true;
+		int choice;
+		do  {
 		displayUserMenu();
 
-		int choice = sc.nextInt();
+		choice = sc.nextInt();
+			switch (choice) {
+			case 1:
+				afb.listJets();
+				break;
+			case 2:
+				afb.flyJets();
+				break;
+			case 3:
+				afb.fastestJet();
+				break;
+			case 4:
+				afb.longestRange();
+				break;
+			case 5:
+				afb.loadCargoJets();
+				break;
+			case 6:
+				afb.dogFight();
+				break;
+			case 7:
+				afb.addANewJet();
+				
+				break;
+			case 8:
 
-		
-		switch (choice) {
-		case 1:
-			afb.listJets();
-			break;
-		case 2:
-			afb.flyJets();
-			break;
-		case 3:
-			afb.fastestJet();
-			break;
-		case 4:
-			afb.longestRange();
-			break;
-		case 5:
-			afb.loadCargoJets();
-			break;
-		case 6:
-			afb.dogFight();
-			break;
-		case 7:
-			afb.JetImpl();
-			afb.listJets();
-			break;
-		case 8:
+				break;
+			default:
 
-			break;
-		default:
-
-		}
-		while (choice != 8)
-			;
+			}
+//			go = true;
+		}while (choice != 8);
 		System.out.println("Quiting...");
-
 	}
 
 	private void displayUserMenu() {
-		System.out.println(
-				"\n1) List fleet\n" + "2) Fly all jets\n" + "3) View fastest jet\n" + "4) View jet with longest range\n"
-						+ "5) Load all Cargo Jets\n" + "6) Dogfight!\n" + "7) Add a jet to Fleet\n" + "8) Quit\n");
+		System.out.print("\nList Options(1-8):\n" + "\n1) List fleet\n" + "2) Fly all jets\n" + "3) View fastest jet\n"
+				+ "4) View jet with longest range\n" + "5) Load all Cargo Jets\n" + "6) Dogfight!\n"
+				+ "7) Add a jet to Fleet\n" + "8) Quit\n");
 	}
 }

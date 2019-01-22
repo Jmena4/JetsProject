@@ -1,7 +1,7 @@
 package com.skilldistillery.jets;
 
 
-public class Jet {
+public abstract class Jet {
 	/*
 	 * All Jets must have a model, speed, range, and price associated with them.
 	 * Speed is in MPH, but your Jet can also output the speed in mach. Jets have
