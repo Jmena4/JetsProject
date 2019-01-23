@@ -22,7 +22,6 @@ public class JetsApplication {
 		int choice;
 		do {
 			displayUserMenu();
-
 			choice = sc.nextInt();
 			switch (choice) {
 			case 1:
@@ -30,13 +29,12 @@ public class JetsApplication {
 				break;
 			case 2:
 				afb.flyJets();
-
 				break;
 			case 3:
-				afb.fastestJet();
+				System.out.println(afb.fastestJet());
 				break;
 			case 4:
-				afb.longestRange();
+				System.out.println(afb.longestRange());
 				break;
 			case 5:
 				afb.loadCargoJets();
@@ -45,8 +43,7 @@ public class JetsApplication {
 				afb.dogFight();
 				break;
 			case 7:
-
-				afb.addANewJet(choice);
+				System.out.println(afb.addANewJet(choice));
 				break;
 			case 8:
 

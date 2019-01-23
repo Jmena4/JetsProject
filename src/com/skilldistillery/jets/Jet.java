@@ -9,6 +9,11 @@ public abstract class Jet {
 	 * can fly until it runs out of fuel (based on speed and range).
 	 */
 	private String model;
+	@Override
+	public String toString() {
+		return "Jet [model=" + model + ", speed=" + speed + ", range=" + range + ", price=" + price + "]";
+	}
+
 	private double speed;
 	private int range;
 	private long price;
