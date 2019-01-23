@@ -13,25 +13,24 @@ public class JetsApplication {
 		Scanner sc = new Scanner(System.in);
 		JetsApplication app = new JetsApplication();
 		app.launchProgram(sc);
-//		jetApplication();
 
 		sc.close();
 	}
 
 	public void launchProgram(Scanner sc) {
 		Airfield afb = new Airfield();
-//		Airfield afb1 = new Airfield();
 		int choice;
-		do  {
-		displayUserMenu();
+		do {
+			displayUserMenu();
 
-		choice = sc.nextInt();
+			choice = sc.nextInt();
 			switch (choice) {
 			case 1:
 				afb.listJets();
 				break;
 			case 2:
 				afb.flyJets();
+
 				break;
 			case 3:
 				afb.fastestJet();
@@ -46,9 +45,8 @@ public class JetsApplication {
 				afb.dogFight();
 				break;
 			case 7:
-			
-				afb.addANewJet();
-				
+
+				afb.addANewJet(choice);
 				break;
 			case 8:
 
@@ -57,12 +55,8 @@ public class JetsApplication {
 
 			}
 //			go = true;
-		}while (choice != 8);
+		} while (choice != 8);
 		System.out.println("Quiting...");
-	}
-
-	private void displayAircraftSelectionMenu() {
-		System.out.println("\nList Aircraft Type options to create(1 or 2):\n"+"\n1) Cargo Plane"+ "\n2) Fighter Jet");
 	}
 
 	private void displayUserMenu() {

@@ -1,11 +1,10 @@
 package com.skilldistillery.jets;
 
-import java.util.Random;
-import java.util.*;
 import java.util.Scanner;
 
 public class Airfield {
 
+	boolean go = true;
 	private Jet[] jets = new Jet[10];
 	Scanner sc = new Scanner(System.in);
 
@@ -87,77 +86,90 @@ public class Airfield {
 			}
 		}
 	}
-//		for (Jet CargoPlane : jets) {
-//			if (CargoPlane instanceof CargoCarrier) {
-//				((CargoCarrier) CargoPlane).loadCargo();
-//				System.out.println("Loading Cargo Planes: " + "\t" + CargoPlane.getModel());
-
-//	}
-//
-//}}
 
 	public void dogFight() {
-
-		for (Jet FighterJet : jets) {
-			if (FighterJet instanceof CombatReady) {
-				((CombatReady) FighterJet).fight();
-//				Random random = new Random();
-				// attempting to generate a random FighterJet to dog fight
-				System.out.print("Dog Fighting: " + "\t" + FighterJet.getModel()
-						+ "\tis dog fighting another aircraft " /* + jets[FighterJet.nextDouble(jets)] */);
+		for (Jet jet : jets) {
+			if (jet instanceof FighterJet) {
+				((FighterJet) jet).fight();
+				System.out.print("Dog Fighting: " + "\t" + jet.getModel());
 				System.out.println((Character.toChars(0x1F680)));
-			} else
-				break;
+			}
 		}
 	}
 
-//	private String Random(String model) {
-//		return null;
-//	}
+	public Jet addANewJet(int choice) {
+		// jets[5] = new CargoPlane("C-17", 590, 6456, 218000000); Test values for
+		Jet tempJet = null;
+		displayAircraftSelectionMenu();
+		choice = sc.nextInt();
+		for (Jet jet : jets) {
+			if (jets == null)
+			switch (choice) {
+			case 1:
+				System.out.println("Please enter an Cargo Jet Aircraft Model type: ");
+				String model = sc.next();
+				jet.setModel(model);
 
-	public void addANewJet() {
-		
-		boolean go = true;
-		for (int j = 0; j < jets.length; j++) {
-			if (jets[j] != null) {
-				while (go) {
-					System.out.println("Please enter an Aircraft Model type: ");
-					String model = sc.next();
-					jets[j].setModel(model);
+				System.out.println("Please enter an Aircraft Speed: ");
+				double speed = sc.nextDouble();
+				jet.setSpeed(speed);
 
-					System.out.println("Please enter an Aircraft Speed: ");
-					double speed = sc.nextDouble();
-					jets[j].setSpeed(speed);
+				System.out.println("Please enter an Aircraft Range: ");
+				int range = sc.nextInt();
+				jet.setRange(range);
+				;
 
-					System.out.println("Please enter an Aircraft Range: ");
-					int range = sc.nextInt();
-					jets[j].setRange(range);
+				System.out.println("Please enter an Aircraft Price");
+				long price = sc.nextLong();
+				jet.setPrice(price);
 
-					System.out.println("Please enter an Aircraft Price");
-					long price = sc.nextLong();
-					jets[j].setPrice(price);
+				tempJet = new CargoPlane(model, speed, range, price);
+				System.out.println("I parked the new CargoJet");
+						break;
 
-					Jet newJet = new JetImplNew(model, speed, range, price);
-					for (Jet jet : jets) {
-						if (jet == null) {
-							jet = newJet;
-							System.out.println("I parked the new Jet");
-							break;
-						}
-					}
-//					this.jets[j] = jets[j];
-					// jets[5] = new CargoPlane("C-17", 590, 6456, 218000000); Test values for
-					// adding a new jet[i]
-//					System.out.println("Jet model is: " + jets[j].getModel() + " Max speed(MPH): " + jets[j].getSpeed()
-//							+ " Max range(Miles): " + jets[j].getRange() + " Price/Unit cost is($): "
-//							+ jets[j].getPrice());
-					go = false;
+			case 2:
+				System.out.println("Please enter an Fighter Jet Aircraft Model type: ");
+				model = sc.next();
+				jet.setModel(model);
+
+				System.out.println("Please enter an Aircraft Speed: ");
+				speed = sc.nextDouble();
+				jet.setSpeed(speed);
+
+				System.out.println("Please enter an Aircraft Range: ");
+				range = sc.nextInt();
+				jet.setRange(range);
+				;
+
+				System.out.println("Please enter an Aircraft Price");
+				price = sc.nextLong();
+				jet.setPrice(price);
+
+				tempJet = new FighterJet(model, speed, range, price);
+				System.out.println("I parked the new ighterJet");
+					break;
+			default:
+				tempJet = new JetImplNew("C-17", 590, 6456, 218000000);
+					break;
+			}
+		}
+		while (go);
+		sc.close();
+
+		for (int i = 0; i < jets.length; i++) {
+			for (Jet jet : jets) {
+				if (jet == null) {
+					jets[i] = tempJet;
+					System.out.println("Parked jet");
+					break;
 				}
 			}
 		}
-		while (go)
-			sc.close();
-
+		return null;
 	}
 
+	private void displayAircraftSelectionMenu() {
+		System.out.println("\nList Aircraft Type options to create(1 or 2):\n" + "\n1) Cargo Plane" + "\n2) Fighter Jet");
+
+	}
 }
