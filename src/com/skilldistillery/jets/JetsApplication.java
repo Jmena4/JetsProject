@@ -43,7 +43,7 @@ public class JetsApplication {
 				afb.dogFight();
 				break;
 			case 7:
-				System.out.println(afb.addANewJet(choice));
+				afb.addANewJet();
 				break;
 			case 8:
 
