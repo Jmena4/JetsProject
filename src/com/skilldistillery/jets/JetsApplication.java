@@ -1,5 +1,6 @@
 package com.skilldistillery.jets;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class JetsApplication {
@@ -43,7 +44,7 @@ public class JetsApplication {
 				afb.dogFight();
 				break;
 			case 7:
-				afb.addANewJet();
+				afb.addANewJet(afb);
 				break;
 			case 8:
 

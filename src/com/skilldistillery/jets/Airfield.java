@@ -25,8 +25,7 @@ public class Airfield {
 	public void listJets() {
 		for (Jet jet : jets) {
 			if (jet instanceof Jet) {
-				System.out.println((" model: " + jet.getModel() + " speed(MPH): " + jet.getSpeed() + " range(Miles): "
-						+ jet.getRange() + " Price/Unit cost is($): " + jet.getPrice()));
+				System.out.println(jet.toString());
 
 			} else {
 				break;
@@ -37,7 +36,7 @@ public class Airfield {
 	public void flyJets() {
 		for (int i = 0; i < jets.length; i++) {
 			if (jets[i] instanceof Jet) {
-				System.out.println("Jet model " + jets[i].getModel() + " is flying");
+				System.out.println("Jet model " + jets[i].toString() + " is flying");
 			} else {
 				break;
 			}
@@ -68,7 +67,7 @@ public class Airfield {
 		for (Jet jet : jets) {
 			if (jet instanceof CargoPlane) {
 				((CargoPlane) jet).loadCargo();
-				System.out.println("Loading Cargo Planes: " + "\t" + jet.getModel());
+				System.out.println("Loading Cargo Planes: " + "\t" + jet.toString());
 			}
 		}
 	}
@@ -77,41 +76,41 @@ public class Airfield {
 		for (Jet jet : jets) {
 			if (jet instanceof FighterJet) {
 				((FighterJet) jet).fight();
-				System.out.print("Dog Fighting: " + "\t" + jet.getModel());
+				System.out.print("Dog Fighting: " + "\t" + jet.toString() + " ");
 				System.out.println((Character.toChars(0x1F680)));
+
 			}
 		}
 	}
 
-	public void addANewJet() {
+	public Jet addANewJet(Airfield afb) {
 		// jets[5] = new CargoPlane("C-17", 590, 6456, 218000000); Test values for
-		boolean go = true;
-		for (int i = 0; i < jets.length; i++) {
-			if (jets == null) {
-				Jet addANewJet = jets[i];
-				while (go) {
-					System.out.println("Please enter a Jet Aircraft Model: ");
-					String model = sc.next();
+//		boolean go = true;
+//		System.out.println(afb.toString());
+		for (Jet jet : jets) {
+			while (jet != null) {
+				Jet addANewJet = jet;
+				System.out.println("Please enter a Jet Aircraft Model: ");
+				String model = sc.next();
+				addANewJet.setModel(model);
 
-					System.out.println("Please enter an Aircraft Speed: ");
-					double speed = sc.nextDouble();
+				System.out.println("Please enter an Aircraft Speed: ");
+				double speed = sc.nextDouble();
+				addANewJet.setSpeed(speed);
 
-					System.out.println("Please enter an Aircraft Range: ");
-					int range = sc.nextInt();
-					;
+				System.out.println("Please enter an Aircraft Range: ");
+				int range = sc.nextInt();
+				addANewJet.setRange(range);
 
-					System.out.println("Please enter an Aircraft Price");
-					long price = sc.nextLong();
+				System.out.println("Please enter an Aircraft Price");
+				long price = sc.nextLong();
+				addANewJet.setPrice(price);
 
-					Jet addAJNewJet = jets[i];
-					System.out.println("I parked the new Jet");
-					break;
-
-				}
+				System.out.println(addANewJet.toString());
+				System.out.println("I parked the new Jet");
 			}
-			go = false;
 			sc.close();
 		}
-
+		return addANewJet(afb);
 	}
 }
