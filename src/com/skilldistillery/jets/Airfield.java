@@ -16,7 +16,7 @@ public class Airfield {
 		jets[3] = new CargoPlane("C-5 ", 597, 7273, 224290000);
 		jets[4] = new CargoPlane("C-130", 398, 2361, 30000000);
 
-//		populateAirfield(jets);
+//		System.out.println();
 	}
 
 	public Airfield(String model, double speed, int range, long price) {
@@ -83,34 +83,36 @@ public class Airfield {
 		}
 	}
 
-	public Jet addANewJet(Airfield afb) {
+	public void addANewJet() {
 		// jets[5] = new CargoPlane("C-17", 590, 6456, 218000000); Test values for
-//		boolean go = true;
-//		System.out.println(afb.toString());
-		for (Jet jet : jets) {
-			while (jet != null) {
-				Jet addANewJet = jet;
-				System.out.println("Please enter a Jet Aircraft Model: ");
-				String model = sc.next();
-				addANewJet.setModel(model);
+		int j;
+		for (j = 4; j < jets.length; j++) {
+			Jet addANewJet = jets[j];
+			if (jets[j] != null) {
+				if (j >= 1) {
+					addANewJet = jets[j];
+					System.out.println("Please enter a Jet Aircraft Model: ");
+					String model = sc.next();
+					addANewJet.setModel(model);
 
-				System.out.println("Please enter an Aircraft Speed: ");
-				double speed = sc.nextDouble();
-				addANewJet.setSpeed(speed);
+					System.out.println("Please enter an Aircraft Speed: ");
+					double speed = sc.nextDouble();
+					addANewJet.setSpeed(speed);
 
-				System.out.println("Please enter an Aircraft Range: ");
-				int range = sc.nextInt();
-				addANewJet.setRange(range);
+					System.out.println("Please enter an Aircraft Range: ");
+					int range = sc.nextInt();
+					addANewJet.setRange(range);
 
-				System.out.println("Please enter an Aircraft Price");
-				long price = sc.nextLong();
-				addANewJet.setPrice(price);
+					System.out.println("Please enter an Aircraft Price");
+					long price = sc.nextLong();
+					addANewJet.setPrice(price);
 
-				System.out.println(addANewJet.toString());
-				System.out.println("I parked the new Jet");
+					jets[j] = addANewJet;
+
+					System.out.println("I parked the new " + " " + addANewJet.toString());
+					break;
+				}
 			}
-			sc.close();
 		}
-		return addANewJet(afb);
 	}
 }

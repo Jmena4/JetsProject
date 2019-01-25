@@ -44,7 +44,7 @@ public class JetsApplication {
 				afb.dogFight();
 				break;
 			case 7:
-				afb.addANewJet(afb);
+				afb.addANewJet();
 				break;
 			case 8:
 

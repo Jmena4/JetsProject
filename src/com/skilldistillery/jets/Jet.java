@@ -78,10 +78,5 @@ public abstract class Jet {
 	public static void jetApplication() {
 
 	}
-//	public int getRandomElement(Jet jets) 
-//    { 
-//        Random rand = new Random(); 
-//        return jets.get(rand.nextInt(jets.size())); 
-//    }
 	
 }
