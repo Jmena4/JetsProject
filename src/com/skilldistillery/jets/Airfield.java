@@ -98,12 +98,11 @@ public class Airfield {
 					addANewJet = new FighterJet();
 					break;
 
-//					default:
-//						 addANewJet = new JetImplNew("C-17", 590, 6456, 218000000); //Test values for
-//						break;
+					default:
+						 addANewJet = new JetImplNew("C-17", 590, 6456, 218000000); //Test values for
+						break;
 				}
-				if (jets[j] != null) {
-					addANewJet = jets[j];
+				if (jets[j] == null) {
 					System.out.print("Please enter a Jet Aircraft Model: ");
 					String model = sc.next();
 					addANewJet.setModel(model);
