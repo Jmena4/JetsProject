@@ -87,7 +87,7 @@ public class Airfield {
 		int j;
 		for (j = 4; j < jets.length; j++) {
 			Jet addANewJet = jets[j];
-			if (j >= 1) {
+			if (j >= 5) {
 				System.out.print("\nList Options(1-8):\n" + "\n1)CargoPlane: " + "\n2)FighterJet ");
 				choice = sc.nextInt();
 				switch (choice) {
