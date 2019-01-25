@@ -85,9 +85,10 @@ public class Airfield {
 
 	public void addANewJet(Scanner sc, int choice) {
 		int j;
-		for (j = 4; j < jets.length; j++) {
+
+		for (j = 0; j < jets.length; j++) {
 			Jet addANewJet = jets[j];
-			if (j >= 5) {
+			if (jets[j] == null) {
 				System.out.print("\nList Options(1-8):\n" + "\n1)CargoPlane: " + "\n2)FighterJet ");
 				choice = sc.nextInt();
 				switch (choice) {
@@ -98,32 +99,30 @@ public class Airfield {
 					addANewJet = new FighterJet();
 					break;
 
-					default:
-						 addANewJet = new JetImplNew("C-17", 590, 6456, 218000000); //Test values for
-						break;
-				}
-				if (jets[j] == null) {
-					System.out.print("Please enter a Jet Aircraft Model: ");
-					String model = sc.next();
-					addANewJet.setModel(model);
-
-					System.out.print("Please enter an Aircraft Speed: ");
-					double speed = sc.nextDouble();
-					addANewJet.setSpeed(speed);
-
-					System.out.print("Please enter an Aircraft Range: ");
-					int range = sc.nextInt();
-					addANewJet.setRange(range);
-
-					System.out.print("Please enter an Aircraft Price");
-					long price = sc.nextLong();
-					addANewJet.setPrice(price);
-
-					jets[j] = addANewJet;
-
-					System.out.println("I parked the new " + " " + addANewJet.toString());
+				default:
+					addANewJet = new JetImplNew("C-17", 590, 6456, 218000000); // Test values for
 					break;
 				}
+				System.out.print("Please enter a Jet Aircraft Model: ");
+				String model = sc.next();
+				addANewJet.setModel(model);
+
+				System.out.print("Please enter an Aircraft Speed: ");
+				double speed = sc.nextDouble();
+				addANewJet.setSpeed(speed);
+
+				System.out.print("Please enter an Aircraft Range: ");
+				int range = sc.nextInt();
+				addANewJet.setRange(range);
+
+				System.out.print("Please enter an Aircraft Price");
+				long price = sc.nextLong();
+				addANewJet.setPrice(price);
+
+				jets[j] = addANewJet;
+
+				System.out.println("I parked the new " + " " + addANewJet.toString());
+				break;
 			}
 		}
 	}
